@@ -29,11 +29,9 @@ def exchange(cur, amount):
 # реализация на замыканиях
 def currency(currency):
     def among(amount):
-        nonlocal currency
-        cur = currency
-        with open("exchange-money-python/exchangerates_req.json", "r") as f:
+        with open("exchangerates_req.json", "r") as f:
             req_json = json.loads(f.read())
-        return float(req_json["rates"][cur])
+        return float(req_json["rates"][currency])
     return among
 
 
